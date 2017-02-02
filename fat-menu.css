@@ -1,0 +1,118 @@
+.fat-menu {
+  position: relative;
+}
+
+.fat-menu > h1 {
+  height:1px;
+  left:-10000px;
+  overflow:hidden;
+  position:absolute;
+  top:auto;
+  width:1px;
+}
+
+.fat-menu-item {
+  background: #4a6d7c;
+  border-top: 1px solid #efefeb;
+  border-radius: 8px;
+  box-shadow: rgba(0,0,0,1) 0 1px 0;
+  font-size: smaller;
+  padding: 5px 10px;
+  text-align: center;
+  text-shadow: rgba(0,0,0,.4) 0 1px 0;
+}
+.fat-menu-item > a {
+  text-decoration: none;
+}
+.fat-menu-item:hover {
+  border-top-color: #28597a;
+  background: #28597a;
+  color: #ccc;
+}
+.fat-menu-item:active {
+  border-top-color: #1b435e;
+  background: #1b435e;
+}
+.fat-menu-item.selected > .selected {
+  height:1px;
+  left:-10000px;
+  overflow:hidden;
+  position:absolute;
+  top:auto;
+  width:1px;
+}
+
+.fat-menu-item {
+  margin: 0 4px;
+  position: absolute;
+  top: 0;
+  width: 20%;
+}
+.fat-menu-item:nth-of-type(2) {
+  left: 25%;
+}
+
+.fat-menu-sub-item {
+  margin: 0px;
+  padding: 0px;
+  display: flex;
+  flex-flow: row;
+}
+
+.fat-menu-sub-item > .section:nth-child(2) {
+  margin: 4px;
+  padding: 5px;
+  border: 1px solid #393a10;
+  border-radius: 7pt;
+  background: #393a10;
+  flex: 3 1 60%;
+  order: 2;
+}
+
+.fat-menu-sub-item > .section:nth-child(1) {
+  margin: 4px;
+  padding: 5px;
+  border: 1px solid #475657;
+  border-radius: 7pt;
+  background: #475657;
+  flex: 1 6 20%;
+  order: 1;
+}
+
+.fat-menu-sub-item > .message-box {
+  margin: 4px;
+  padding: 5px;
+  border: 1px solid #475657;
+  border-radius: 7pt;
+  background: #475657;
+  flex: 1 6 20%;
+  order: 3;
+}
+
+.fat-menu-sub-item {
+  display: none;
+}
+
+.fat-menu.active .fat-menu-item.selected + .fat-menu-sub-item,
+.fat-menu-item:hover + .fat-menu-sub-item,
+.fat-menu-sub-item:hover {
+  display: flex;
+}
+.fat-menu-item:hover ~ .fat-menu-item.selected + .fat-menu-sub-item,
+.fat-menu.active .fat-menu-item.selected + .fat-menu-sub-item.selected.disabled {
+  display: none;
+}
+
+@media all and (max-width: 640px) {
+  .fat-menu-item {
+    position: relative;
+  }
+
+  .fat-menu-sub-item, #page {
+    flex-direction: column;
+  }
+
+  .fat-menu-sub-item > .section, .fat-menu-sub-item > .message-box {
+    order: 0;
+  }
+}

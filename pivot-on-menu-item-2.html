@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Fat Menus | a11y-patterns</title>
+
+    <link rel="stylesheet" type="text/css" href="skeleton.css" />
+    <link rel="stylesheet" type="text/css" href="fat-menu.css" />
+  </head>
+  <body>
+    <nav class="fat-menu active">
+      <h1>Main Navigation</h1>
+      <h2 class="fat-menu-item"><a href="">Menu Item Number 1</a></h2>
+      <div class="fat-menu-sub-item">
+        <div class="section">
+          <h2><a href="">Section A</a></h2>
+          <ul>
+            <li><a href="">A page inside section A</a></li>
+            <li><a href="">Another page inside section A</a></li>
+          </ul>
+        </div>
+
+        <div class="section">
+          <h2><a href="">Section B</a></h2>
+          <ul>
+            <li><a href="">A page inside section B</a></li>
+            <li><a href="">Another page inside section B</a></li>
+          </ul>
+        </div>
+
+        <div class="message-box">
+          <h2>A Message Box</h2>
+          <p>In order to justify the fat menu pattern, we are trying to fill-in space with babble text.</p>
+          <p>Hopefully, visitors will be blind to the fact that we didn't really need a fat-menu on our site and that the only justification was to be cool like the other kids on the block!</p>
+        </div>
+      </div>
+
+      <h2 class="fat-menu-item selected">Menu Item Number 2<span class="selected">(Current Page)</span></h2>
+      <div class="fat-menu-sub-item selected">
+        <div class="section">
+          <h2><a href="">Section C</a></h2>
+          <ul>
+            <li><a href="">A page inside section C</a></li>
+            <li><a href="">Another page inside section C</a></li>
+          </ul>
+        </div>
+
+        <div class="section">
+          <h2><a href="">Section D</a></h2>
+          <ul>
+            <li><a href="">A page inside section D</a></li>
+            <li><a href="">Another page inside section D</a></li>
+          </ul>
+        </div>
+
+        <div class="message-box">
+          <h2>Yet Another Message Box</h2>
+          <p>This box is there as a proof of work.</p>
+          <p>Hopefully, my boss will understand that I needed 12&nbsp;hours to implement a website menu.</p>
+          <p>Like we never did a menu on a web page&hellip;</p>
+        </div>
+      </div>
+    </nav>
+    <main>
+      <article>This is a pivot page.</article>
+    </main>
+    <footer>
+      <address>
+        <small>© 2017 Samuel Sirois<br />
+        This code is licensed under a <a rel="license" href="https://www.gnu.org/licenses/gpl.html">GNU General Public License v.3 (<abbr title="GNU General Public License version 3">GPLv3</abbr>)</a>.</small>
+      </address>
+    </footer>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/zepto/1.2.0/zepto.min.js"></script>
+    <script>
+      Zepto(function($){
+        $('.fat-menu-sub-item')
+          .on('mouseover', function(e) {
+            $(this).siblings('.fat-menu-sub-item.selected')
+              .first()
+              .addClass('disabled');
+          })
+          .on('mouseout', function(e) {
+            $(this).siblings('.fat-menu-sub-item.selected')
+              .first()
+              .removeClass('disabled');
+          });
+        });
+    </script>
+  </body>
+</html>
